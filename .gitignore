@@ -1,0 +1,21 @@
+# Виртуальное окружение
+venv/
+ENV/
+env/
+
+# Файлы Python
+*.pyc
+__pycache__/
+
+# База данных
+data/alkometer.db
+
+# Файлы миграций
+migrations/versions/*.py
+
+# Конфиденциальные файлы
+.env
+
+# IDE
+.idea/
+*.iml
