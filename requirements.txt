@@ -2,3 +2,4 @@ python-telegram-bot
 SQLAlchemy
 Alembic
 python-dotenv==1.0.0
+matplotlib
