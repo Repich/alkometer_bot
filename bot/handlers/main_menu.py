@@ -32,14 +32,14 @@ async def main_menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     if data == "add_alcohol":
         # Запускаем inline-логику добавления алкоголя
-        await inline_add_alcohol_start(query, context)
+        await inline_add_alcohol_start(update, context)
     elif data == "report":
         # Запускаем отчёт
         # Можем отредактировать сообщение или отправить новое
         # Здесь для примера отправим новый
-        await report(query, context)
+        await report(update, context)
     elif data == "settings":
-        await settings_start(query, context)
+        await settings_start(update, context)
     else:
         await query.edit_message_text("Неизвестная команда.")
 

@@ -1,12 +1,10 @@
 # bot/handlers/start.py
 
-from bot.logger import logger
-from telegram import Update, ReplyKeyboardMarkup
-from telegram.ext import CommandHandler, ContextTypes
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ContextTypes, CommandHandler
 from bot.utils.db import SessionLocal
 from bot.models.user import User
-from bot.utils.keyboards import main_menu_keyboard
-
+from bot.logger import logger
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logger.info("Выполняется обработчик /start")
@@ -14,27 +12,29 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     username = update.effective_user.username
 
-    # Проверяем, существует ли пользователь
     user = session.query(User).filter(User.telegram_id == user_id).first()
-
     if not user:
-        # Создаем нового пользователя
         user = User(telegram_id=user_id, username=username)
         session.add(user)
         session.commit()
-        welcome_text = "Добро пожаловать в Alkometer! Теперь вы можете отслеживать потребление алкоголя."
+        welcome_text = "Добро пожаловать в Alkometer!"
     else:
-        # Если пользователь уже есть, не отправляем сообщение "С возвращением", а сразу переходим к меню
-        welcome_text = None  # Нет необходимости отправлять это сообщение
+        welcome_text = "С возвращением в Alkometer!"
 
-    # Создание главного меню
-    reply_keyboard = [['Добавить алкоголь', 'Просмотр отчёта'], ['Настройки']]
-    await update.message.reply_text(
-        welcome_text if welcome_text else "Как я могу помочь?",
-        reply_markup=main_menu_keyboard(),
-    )
     session.close()
 
+    # Вместо main_menu_keyboard() - используем inline-кнопки
+    keyboard = [
+        [InlineKeyboardButton("🍺 Добавить алкоголь", callback_data="add_alcohol")],
+        [InlineKeyboardButton("📊 Просмотр отчёта", callback_data="report")],
+        [InlineKeyboardButton("⚙️ Настройки", callback_data="settings")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-# Регистрация обработчика команды /start
+    await update.message.reply_text(
+        text=f"{welcome_text}\nПожалуйста, выбери опцию:",
+        reply_markup=reply_markup
+    )
+
+# Регистрируем обработчик команды /start
 start_handler = CommandHandler('start', start)

@@ -3,8 +3,7 @@
 from telegram import (
     Update,
     InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    ReplyKeyboardRemove
+    InlineKeyboardMarkup
 )
 from telegram.ext import (
     ContextTypes,
@@ -18,44 +17,44 @@ from bot.logger import logger
 from bot.utils.db import SessionLocal
 from bot.services.user_service import get_user, create_user
 from bot.services.alcohol_service import (
-    get_alcohol_type_by_name,
     create_alcohol_type,
     get_top_alcohol_types
 )
 from bot.models.consumption import Consumption
 from bot.handlers.start import start
 
-# Состояния
-CHOOSE_FAV_DRINK, ASK_NAME, ASK_CONTENT, ASK_AMOUNT, ASK_PRICE = range(5)
+# Состояния для ConversationHandler
+(CHOOSE_FAV_DRINK, ASK_NAME, ASK_CONTENT, ASK_AMOUNT, ASK_PRICE) = range(5)
 
-async def inline_add_alcohol_start(update_or_query, context: ContextTypes.DEFAULT_TYPE):
+
+async def inline_add_alcohol_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
-    Инлайн-версия шага 1: Показываем топ-6 популярных напитков + кнопку "Другой" в inline-виде.
-    Вызывается из main_menu_callback(data='add_alcohol').
+    1) Показываем список популярных напитков + «Другой» (inline).
+    2) Эта функция НЕ возвращает состояние ConversationHandler:
+       – пользователь только видит кнопки.
+    3) Следующий шаг (inline_add_alcohol_callback) вызывается, когда нажмут «fav:...»
+       или «other_new_drink».
     """
     logger.info("Пользователь начал добавление алкоголя (inline).")
 
-    # Проверяем, update_or_query может быть CallbackQuery или Update
-    if hasattr(update_or_query, 'callback_query'):
-        query = update_or_query.callback_query
-        await query.answer()
-        chat_id = query.message.chat_id
-    else:
-        chat_id = update_or_query.effective_chat.id
+    query = update.callback_query  # Вызываемся из CallbackQueryHandler
+    await query.answer()           # Убираем "..."
+
+    chat_id = update.effective_chat.id
 
     session = SessionLocal()
     try:
         top_alcohols = get_top_alcohol_types(session, limit=6)
-        # Формируем inline-кнопки по напиткам
         buttons = []
         for alc in top_alcohols:
+            # Для каждого напитка создаём кнопку callback_data="fav:<id>"
             buttons.append([InlineKeyboardButton(alc.name, callback_data=f"fav:{alc.id}")])
+
         # Кнопка "Другой"
         buttons.append([InlineKeyboardButton("Другой", callback_data="other_new_drink")])
 
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        # Отправляем или редактируем сообщение
         await context.bot.send_message(
             chat_id=chat_id,
             text="🎯 Выберите напиток из списка или нажмите 'Другой':",
@@ -67,32 +66,30 @@ async def inline_add_alcohol_start(update_or_query, context: ContextTypes.DEFAUL
 
 async def inline_add_alcohol_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
-    Обработка нажатий inline-кнопок из inline_add_alcohol_start.
+    2) Обработка нажатий "fav:<id>" или "other_new_drink".
+       Здесь мы входим в ConversationHandler, возвращая ASK_AMOUNT или ASK_NAME.
     """
     query = update.callback_query
     await query.answer()
 
-    data = query.data  # Пример: "fav:1" или "other_new_drink"
+    data = query.data  # "fav:5" или "other_new_drink"
+    logger.info(f"inline_add_alcohol_callback data={data}")
+
     if data.startswith("fav:"):
-        # Пользователь выбрал один из существующих напитков
+        # Пользователь выбрал существующий напиток
         alc_id_str = data.split(":")[1]
         alc_id = int(alc_id_str)
         context.user_data['alcohol_type_id'] = alc_id
 
-        # Найдём имя напитка для контекста
+        from bot.models.alcohol_type import AlcoholType
         session = SessionLocal()
         try:
-            alc = session.get_top_alcohol_types  # ОШИБКА, нужно get(AlcoholType, alc_id)
-            # Правильнее:
-            from bot.models.alcohol_type import AlcoholType
             alc_obj = session.query(AlcoholType).get(alc_id)
             if alc_obj:
                 context.user_data['alcohol_name'] = alc_obj.name
-                # Переходим к запросу объёма (в литрах) -- обычный текст
-                await query.edit_message_text(
-                    text=f"📏 Сколько {alc_obj.name} вы выпили? (в литрах)"
-                )
-                # Меняем состояние
+                # Спрашиваем количество (litre)
+                await query.edit_message_text(f"📏 Сколько {alc_obj.name} вы выпили? (в литрах)")
+                logger.info("Переход к состоянию ASK_AMOUNT")
                 return ASK_AMOUNT
             else:
                 await query.edit_message_text("⚠️ Напиток не найден в базе.")
@@ -101,11 +98,10 @@ async def inline_add_alcohol_callback(update: Update, context: ContextTypes.DEFA
             session.close()
 
     elif data == "other_new_drink":
-        # Переходим к запросу названия нового напитка
-        await query.edit_message_text(
-            text="📝 Введите название нового напитка:"
-        )
+        # Просим ввести новое название
+        await query.edit_message_text("📝 Введите название нового напитка:")
         return ASK_NAME
+
     else:
         await query.edit_message_text("Неизвестный выбор.")
         return ConversationHandler.END
@@ -113,24 +109,26 @@ async def inline_add_alcohol_callback(update: Update, context: ContextTypes.DEFA
 
 async def ask_alcohol_content(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """
-    Шаг (ASK_NAME -> ASK_CONTENT).
+    Шаг (ASK_NAME -> ASK_CONTENT): пользователь ввёл новое название, теперь крепость (0..100).
     """
+    logger.info("ask_alcohol_content вызывается")
     context.user_data['alcohol_name'] = update.message.text.strip()
-    await update.message.reply_text(
-        text="📊 Введите крепость напитка (0..100):"
-    )
+    await update.message.reply_text("📊 Введите крепость напитка (0..100):")
     return ASK_CONTENT
+
 
 async def create_new_alcohol_type(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """
-    Создаёт новый напиток, затем спрашиваем объём (литрами).
+    Создаём новый тип в БД, затем спрашиваем количество (ASK_AMOUNT).
     """
+    logger.info("create_new_alcohol_type вызывается")
     session = SessionLocal()
     try:
         content_str = update.message.text.replace(',', '.')
         content = float(content_str)
-        if content < 0 or content > 100:
+        if not (0 <= content <= 100):
             raise ValueError
+
         new_alcohol = create_alcohol_type(
             session=session,
             name=context.user_data['alcohol_name'],
@@ -152,27 +150,33 @@ async def create_new_alcohol_type(update: Update, context: ContextTypes.DEFAULT_
     finally:
         session.close()
 
+
 async def ask_alcohol_volume(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """
-    Шаг ASK_AMOUNT: ввод объёма (литров), затем переходим к цене.
+    Шаг ASK_AMOUNT: ввод объёма (литров), потом спрашиваем цену (ASK_PRICE).
     """
+    logger.info("ask_alcohol_volume вызывается")
     text = update.message.text.replace(',', '.')
     try:
         amount = float(text)
         if amount <= 0:
             raise ValueError
         context.user_data['amount'] = amount
+        logger.info(f"Количество сохранено: {amount}")
     except ValueError:
+        logger.warning(f"Некорректный ввод объёма: {text}")
         await update.message.reply_text("❌ Введите положительное число (литры):")
         return ASK_AMOUNT
 
+    logger.info("Переход к состоянию ASK_PRICE")
     await update.message.reply_text("💰 Введите стоимость (руб) для этого события:")
     return ASK_PRICE
 
 async def save_consumption(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """
-    Шаг ASK_PRICE: сохраняем в БД, возвращаем в главное меню.
+    Шаг ASK_PRICE: сохраняем всё в БД и выходим из разговора, возвращаясь в главное меню.
     """
+    logger.info("save_consumption вызывается")
     session = SessionLocal()
     user = None
     try:
@@ -221,18 +225,17 @@ async def save_consumption(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         session.close()
         context.user_data.clear()
 
-    # Возвращаем в главное меню
+    # Возвращаем пользователя в главное меню
     await start(update, context)
     return ConversationHandler.END
 
 
-# Inline-конверсация: entry_points = [CallbackQueryHandler(inline_add_alcohol_start, pattern="add_alcohol")]
-# Но мы можем использовать промежуточное "main_menu.py"
-
+# ConversationHandler: включаем per_message=True,
+# чтобы гарантированно отслеживать сообщение после inline-callback
 add_alcohol_conv_handler = ConversationHandler(
     entry_points=[
-        # Теперь не MessageHandler, а CallbackQueryHandler на "fav:" или "other_new_drink"
-        CallbackQueryHandler(inline_add_alcohol_callback, pattern="^fav:|^other_new_drink$")
+        # Используем паттерн, который ловит "fav:" с любыми символами после
+        CallbackQueryHandler(inline_add_alcohol_callback, pattern=r"^fav:\d+|other_new_drink$")
     ],
     states={
         ASK_NAME: [
@@ -248,5 +251,8 @@ add_alcohol_conv_handler = ConversationHandler(
             MessageHandler(filters.TEXT & ~filters.COMMAND, save_consumption)
         ],
     },
-    fallbacks=[CommandHandler('cancel', lambda u, c: ConversationHandler.END)]
+    fallbacks=[
+        CommandHandler('cancel', lambda u, c: ConversationHandler.END)
+    ],
+    per_chat=True
 )

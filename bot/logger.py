@@ -5,7 +5,7 @@ import sys
 
 # Создание логгера
 logger = logging.getLogger('alkometer_bot')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 # Создание обработчика для вывода в консоль
 console_handler = logging.StreamHandler(sys.stdout)

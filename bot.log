@@ -1843,3 +1843,1473 @@ Traceback (most recent call last):
     raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
 telegram.error.NetworkError: httpx.ConnectError: 
 2025-01-22 20:52:53,157 - alkometer_bot - INFO - Пользователь начал добавление алкоголя.
+2025-01-23 17:22:15,862 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-23 17:22:15,862 - alkometer_bot - INFO - Запуск main()
+2025-01-23 17:22:15,862 - alkometer_bot - INFO - Создание приложения бота
+2025-01-23 17:22:15,933 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-23 17:22:15,933 - alkometer_bot - INFO - Запуск бота
+2025-01-23 17:22:26,759 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-23 17:22:26,782 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/start.py", line 33, in start
+    reply_markup=main_menu_keyboard(),
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'main_menu_keyboard' is not defined
+2025-01-23 17:25:05,566 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-23 17:25:05,566 - alkometer_bot - INFO - Запуск main()
+2025-01-23 17:25:05,566 - alkometer_bot - INFO - Создание приложения бота
+2025-01-23 17:25:05,629 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-23 17:25:05,629 - alkometer_bot - INFO - Запуск бота
+2025-01-23 17:25:07,753 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-23 17:26:02,992 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-23 20:32:17,274 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-01-23 21:32:28,780 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-23 21:32:28,785 - alkometer_bot - INFO - Запуск main()
+2025-01-23 21:32:28,785 - alkometer_bot - INFO - Создание приложения бота
+2025-01-23 21:32:28,864 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-23 21:32:28,865 - alkometer_bot - INFO - Запуск бота
+2025-01-23 21:32:48,649 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-23 21:32:48,650 - alkometer_bot - INFO - Запуск main()
+2025-01-23 21:32:48,650 - alkometer_bot - INFO - Создание приложения бота
+2025-01-23 21:32:48,712 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-23 21:32:48,712 - alkometer_bot - INFO - Запуск бота
+2025-01-23 21:32:49,197 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-23 21:33:04,601 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-23 21:33:04,602 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 35, in main_menu_callback
+    await inline_add_alcohol_start(query, context)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/add_alcohol.py", line 44, in inline_add_alcohol_start
+    chat_id = update_or_query.effective_chat.id
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CallbackQuery' object has no attribute 'effective_chat'
+2025-01-23 21:33:04,708 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-23 21:33:05,226 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 40, in main_menu_callback
+    await report(query, context)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/report.py", line 16, in report
+    telegram_id = update.effective_user.id
+                  ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CallbackQuery' object has no attribute 'effective_user'
+2025-01-24 09:21:40,079 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 35, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 204, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 140, in _call_sslobject_method
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 921, in read
+    v = self._sslobj.read(len)
+        ^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 346, in _request_wrapper
+    raise NetworkError(f"Unknown error in HTTP implementation: {exc!r}") from exc
+telegram.error.NetworkError: Unknown error in HTTP implementation: SSLError(1, '[SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)')
+2025-01-24 09:32:49,415 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-24 09:32:49,417 - alkometer_bot - INFO - Запуск main()
+2025-01-24 09:32:49,418 - alkometer_bot - INFO - Создание приложения бота
+2025-01-24 09:32:49,483 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-24 09:32:49,484 - alkometer_bot - INFO - Запуск бота
+2025-01-24 09:33:16,628 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-24 09:33:22,256 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-24 09:33:22,257 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 35, in main_menu_callback
+    await inline_add_alcohol_start(query, context)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/add_alcohol.py", line 40, in inline_add_alcohol_start
+    query = update.callback_query  # Т.к. нас вызвал CallbackQueryHandler
+            ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CallbackQuery' object has no attribute 'callback_query'
+2025-01-24 10:23:14,132 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-24 10:23:14,136 - alkometer_bot - INFO - Запуск main()
+2025-01-24 10:23:14,136 - alkometer_bot - INFO - Создание приложения бота
+2025-01-24 10:23:14,199 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-24 10:23:14,200 - alkometer_bot - INFO - Запуск бота
+2025-01-24 10:23:23,537 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-24 10:23:26,660 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-24 12:35:43,775 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-24 12:35:48,919 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-24 12:36:12,743 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-24 12:36:16,171 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 40, in main_menu_callback
+    await report(update, context)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/report.py", line 23, in report
+    await update.message.reply_text(text_report)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2025-01-24 13:29:54,067 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-01-24 17:02:45,252 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-24 17:02:45,253 - alkometer_bot - INFO - Запуск main()
+2025-01-24 17:02:45,253 - alkometer_bot - INFO - Создание приложения бота
+2025-01-24 17:02:45,319 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-24 17:02:45,319 - alkometer_bot - INFO - Запуск бота
+2025-01-24 17:04:12,957 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-24 17:04:16,232 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-24 17:04:18,328 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-24 18:10:30,954 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-01-24 20:28:38,129 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-01-25 03:00:11,395 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2025-01-25 07:16:56,521 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-01-26 13:39:14,358 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 35, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 204, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 140, in _call_sslobject_method
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 921, in read
+    v = self._sslobj.read(len)
+        ^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 346, in _request_wrapper
+    raise NetworkError(f"Unknown error in HTTP implementation: {exc!r}") from exc
+telegram.error.NetworkError: Unknown error in HTTP implementation: SSLError(1, '[SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)')
+2025-01-26 13:41:41,858 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 35, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 204, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 140, in _call_sslobject_method
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 921, in read
+    v = self._sslobj.read(len)
+        ^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 346, in _request_wrapper
+    raise NetworkError(f"Unknown error in HTTP implementation: {exc!r}") from exc
+telegram.error.NetworkError: Unknown error in HTTP implementation: SSLError(1, '[SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)')
+2025-01-26 13:45:31,031 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 35, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 204, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/anyio/streams/tls.py", line 140, in _call_sslobject_method
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 921, in read
+    v = self._sslobj.read(len)
+        ^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 346, in _request_wrapper
+    raise NetworkError(f"Unknown error in HTTP implementation: {exc!r}") from exc
+telegram.error.NetworkError: Unknown error in HTTP implementation: SSLError(1, '[SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2580)')
+2025-01-26 13:45:35,332 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-01-27 03:00:07,347 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2025-01-27 09:53:21,218 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 09:53:21,223 - alkometer_bot - INFO - Запуск main()
+2025-01-27 09:53:21,223 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 09:53:21,290 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 09:53:21,291 - alkometer_bot - INFO - Запуск бота
+2025-01-27 09:53:46,880 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-27 09:53:52,520 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-27 09:53:55,798 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-27 09:58:57,412 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 09:58:57,417 - alkometer_bot - INFO - Запуск main()
+2025-01-27 09:58:57,417 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 09:58:57,488 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 09:58:57,488 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:00:21,336 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:00:21,336 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:00:21,336 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:00:21,404 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:00:21,404 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:01:25,282 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:01:25,291 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:01:25,291 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:01:25,364 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:01:25,364 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:01:27,610 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-27 10:01:29,470 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-27 10:01:31,681 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-27 10:02:49,124 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:02:49,132 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:02:49,132 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:02:49,370 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:02:49,370 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:02:52,325 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-27 10:02:53,913 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-27 10:02:56,472 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-27 10:04:59,377 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:04:59,385 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:04:59,385 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:04:59,448 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:04:59,449 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:05:02,981 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-27 10:05:04,725 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-27 10:05:06,942 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-27 10:07:39,815 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:07:39,826 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:07:39,826 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:07:39,889 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:07:39,889 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:07:45,288 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-27 10:07:48,624 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-27 10:07:51,590 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-27 10:07:51,872 - alkometer_bot - INFO - Переход к состоянию ASK_AMOUNT
+2025-01-27 10:26:31,786 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:26:31,792 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:26:31,792 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:26:31,858 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:26:31,858 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:26:58,191 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-27 10:26:58,192 - alkometer_bot - INFO - Запуск main()
+2025-01-27 10:26:58,192 - alkometer_bot - INFO - Создание приложения бота
+2025-01-27 10:26:58,258 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-27 10:26:58,258 - alkometer_bot - INFO - Запуск бота
+2025-01-27 10:27:06,720 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-27 10:27:09,381 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-28 13:40:30,801 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-28 13:40:30,801 - alkometer_bot - INFO - Запуск main()
+2025-01-28 13:40:30,801 - alkometer_bot - INFO - Создание приложения бота
+2025-01-28 13:40:30,883 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-28 13:40:30,883 - alkometer_bot - INFO - Запуск бота
+2025-01-28 13:40:40,573 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-28 13:40:44,027 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-28 13:58:10,031 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-28 13:58:10,035 - alkometer_bot - INFO - Запуск main()
+2025-01-28 13:58:10,035 - alkometer_bot - INFO - Создание приложения бота
+2025-01-28 13:58:10,101 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-28 13:58:10,101 - alkometer_bot - INFO - Запуск бота
+2025-01-28 13:58:17,759 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-28 13:58:20,839 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-28 13:58:23,380 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-28 13:58:23,621 - alkometer_bot - INFO - Переход к состоянию ASK_AMOUNT
+2025-01-28 13:58:27,609 - alkometer_bot - INFO - ask_alcohol_volume вызывается
+2025-01-28 13:58:27,610 - alkometer_bot - INFO - Количество сохранено: 1.0
+2025-01-28 13:58:27,610 - alkometer_bot - INFO - Переход к состоянию ASK_PRICE
+2025-01-28 13:58:32,162 - alkometer_bot - INFO - save_consumption вызывается
+2025-01-28 13:58:32,481 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-28 16:01:48,145 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-28 16:01:48,153 - alkometer_bot - INFO - Запуск main()
+2025-01-28 16:01:48,153 - alkometer_bot - INFO - Создание приложения бота
+2025-01-28 16:01:48,221 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-28 16:01:48,221 - alkometer_bot - INFO - Запуск бота
+2025-01-28 16:01:50,505 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 31, in main_menu_callback
+    await query.answer()  # подтверждаем callback, чтобы Telegram не висел на "…"
+    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_callbackquery.py", line 190, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 938, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4057, in answer_callback_query
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 383, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
+2025-01-28 16:02:08,531 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-28 16:02:08,532 - alkometer_bot - INFO - Запуск main()
+2025-01-28 16:02:08,532 - alkometer_bot - INFO - Создание приложения бота
+2025-01-28 16:02:08,593 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-28 16:02:08,593 - alkometer_bot - INFO - Запуск бота
+2025-01-28 16:02:38,003 - alkometer_bot - INFO - TELEGRAM_BOT_TOKEN загружен: Да
+2025-01-28 16:02:38,004 - alkometer_bot - INFO - Запуск main()
+2025-01-28 16:02:38,004 - alkometer_bot - INFO - Создание приложения бота
+2025-01-28 16:02:38,064 - alkometer_bot - INFO - Регистрация обработчиков
+2025-01-28 16:02:38,064 - alkometer_bot - INFO - Запуск бота
+2025-01-28 16:02:49,752 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 40, in main_menu_callback
+    await report(update, context)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/report.py", line 23, in report
+    await update.message.reply_text(text_report)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2025-01-28 16:29:23,029 - alkometer_bot - INFO - Пользователь начал добавление алкоголя (inline).
+2025-01-28 16:29:26,703 - alkometer_bot - INFO - inline_add_alcohol_callback data=fav:1
+2025-01-28 16:29:27,007 - alkometer_bot - INFO - Переход к состоянию ASK_AMOUNT
+2025-01-28 16:29:31,185 - alkometer_bot - INFO - ask_alcohol_volume вызывается
+2025-01-28 16:29:31,186 - alkometer_bot - INFO - Количество сохранено: 1.0
+2025-01-28 16:29:31,186 - alkometer_bot - INFO - Переход к состоянию ASK_PRICE
+2025-01-28 16:29:34,883 - alkometer_bot - INFO - save_consumption вызывается
+2025-01-28 16:29:35,407 - alkometer_bot - INFO - Выполняется обработчик /start
+2025-01-28 16:29:37,467 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/main_menu.py", line 40, in main_menu_callback
+    await report(update, context)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/bot/handlers/report.py", line 23, in report
+    await update.message.reply_text(text_report)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2025-01-29 03:00:05,708 - alkometer_bot - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4480, in get_updates
+    await self._post(
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/olegrepnikov/Documents/PyCharmProject/alkometer_bot/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 317, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.RemoteProtocolError: Server disconnected without sending a response.

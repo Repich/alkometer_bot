@@ -29,6 +29,7 @@ def generate_report(session: Session, user: User):
 
     if not consumptions:
         return "Вы не употребляли алкоголь за последние 7 дней.", None
+        # Убедитесь, что report_data не пуст после фильтрации
 
     report_data: Dict[str, Dict[str, float]] = {}
     total_absolute = 0.0

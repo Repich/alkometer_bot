@@ -3,7 +3,6 @@
 from telegram.ext import CommandHandler, MessageHandler, ConversationHandler, ContextTypes
 from telegram.ext.filters import Regex, Text, Command
 from telegram import Update, ReplyKeyboardRemove
-from bot.utils.keyboards import settings_menu_keyboard
 from bot.services.user_service import get_user, create_user, update_user_units, update_user_daily_goal
 from bot.utils.db import SessionLocal
 
